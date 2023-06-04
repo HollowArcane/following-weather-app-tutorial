@@ -12,7 +12,8 @@ async function getData(link)
 const database = new nedb("public/weather.dat");
 database.loadDatabase();
 
-server.listen(1000, () => console.log("Server is listening ~( ˘▾˘~)"));
+const port = process.env.PORT || 1000;
+server.listen(port, () => console.log(`Server is listening at port ${port} ~( ˘▾˘~)`));
 server.use(express.static("public"));
 server.use(express.json("1mb"));
 
